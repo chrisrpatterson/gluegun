@@ -19,3 +19,10 @@ steps:
 - script: |
     yarn ci:test
   displayName: 'yarn ci:test'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '*tests.xml'
+    searchFolder: 'test-results'
+  condition: always()
