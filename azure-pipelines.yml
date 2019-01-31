@@ -7,8 +7,8 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- bash: |
-    curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.4
+- script: |
+    choco install yarn --version 1.9.4
   displayName: 'install yarn'
 
 - bash: |
