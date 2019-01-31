@@ -8,7 +8,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    choco install yarn --version 1.9.4 -i
+    choco install yarn --version 1.9.4 -i -r
+    echo "##vso[task.prependpath]C:\Program Files (x86)\Yarn\bin"
   displayName: 'install yarn'
 
 - script: |
