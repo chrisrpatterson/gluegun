@@ -8,13 +8,13 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    choco install yarn --version 1.9.4
+    choco install yarn --version 1.9.4 -i
   displayName: 'install yarn'
 
-- bash: |
+- script: |
     yarn install
   displayName: 'yarn install'
 
-- bash: |
+- script: |
     yarn ci:test
   displayName: 'yarn ci:test'
