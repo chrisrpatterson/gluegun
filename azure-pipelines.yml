@@ -8,7 +8,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    call choco install yarn --version 1.9.4 -i -r
+    call choco install yarn -i -r
     echo ##vso[task.prependpath]"C:\Program Files (x86)\Yarn\bin"
   displayName: 'install yarn'
 
@@ -26,3 +26,10 @@ steps:
     testResultsFiles: '*tests.xml'
     searchFolder: 'test-results'
   condition: always()
+  
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/build/'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
